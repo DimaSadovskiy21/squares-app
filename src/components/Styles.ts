@@ -14,6 +14,16 @@ export const styles = StyleSheet.create({
     padding: 10,
     marginTop: 20,
   },
+  disabledButton: {
+    width: '100%',
+    alignItems: 'center',
+    alignSelf: 'center',
+    borderWidth: 1,
+    borderRadius: 10,
+    padding: 10,
+    marginTop: 20,
+    opacity: 0.2,
+  },
   input: {
     width: '100%',
     backgroundColor: '#dcdcdc',

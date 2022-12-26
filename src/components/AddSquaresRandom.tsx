@@ -1,11 +1,12 @@
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-import { useDispatch } from 'react-redux';
+
+import { useAppDispatch } from '../hooks/redux';
 import { setRandomColor } from '../store/colorSlice';
 import { styles } from './Styles';
 
 const AddSquaresRandom = () => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
   return (
     <>
       <TouchableOpacity onPress={() => dispatch(setRandomColor())} style={styles.button}>

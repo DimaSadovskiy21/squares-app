@@ -1,8 +1,10 @@
+import { setupStore } from './src/store/store';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Provider } from 'react-redux';
 import HomeScreen from './src/screens/HomeScreen';
-import { store } from './src/store/store';
+import React from 'react';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -18,8 +20,9 @@ function App() {
 
 export default () => {
   return (
-    <Provider store={store}>
+    <Provider store={setupStore()}>
       <App />
     </Provider>
   );
 };
+

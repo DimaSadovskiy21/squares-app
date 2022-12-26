@@ -1,17 +1,18 @@
 import React from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../hooks/redux';
 import { deleteColor } from '../store/colorSlice';
 import { styles } from './Styles';
 
 const Squares = () => {
-  const color = useSelector((state) => state.color.value);
-  const dispatch = useDispatch();
+  const color = useAppSelector((state) => state.colorSlice.value);
+  const dispatch = useAppDispatch();
   return (
     <View style={styles.squares}>
-      {color.map((item) => {
+      {color.map((item, index) => {
         return (
-          <TouchableOpacity key={item.id} onPress={() => dispatch(deleteColor(item))}>
+          <TouchableOpacity key={index} onPress={() => dispatch(deleteColor(item))}>
             <View
               style={{
                 backgroundColor: item.rgbColor,

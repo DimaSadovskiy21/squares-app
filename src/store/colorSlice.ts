@@ -1,11 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 import uuid from 'react-native-uuid';
+import { SquareType } from '../models/Square';
 
-const initialState = {
+type ColorType = {
+  value: SquareType[]
+}
+
+type RandomRgbType = () => SquareType
+
+const initialState: ColorType = {
   value: [],
 };
 
-const randomRgb = () => {
+const randomRgb: RandomRgbType = () => {
   const red = Math.floor(Math.random() * 256);
   const green = Math.floor(Math.random() * 256);
   const blue = Math.floor(Math.random() * 256);

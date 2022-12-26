@@ -9,10 +9,18 @@ const AddSquares = () => {
   const [red, setRed] = useState('');
   const [green, setGreen] = useState('');
   const [blue, setBlue] = useState('');
+
+  const cleanInput = () => {
+    setRed('');
+    setGreen('');
+    setBlue('');
+  };
   return (
     <>
       <Text style={styles.title}>Red shade</Text>
       <TextInput
+        maxLength={3}
+        keyboardType="numeric"
         placeholder={'Enter a number from 0 to 256...'}
         style={styles.input}
         value={red}
@@ -20,6 +28,8 @@ const AddSquares = () => {
       />
       <Text style={styles.title}>Green shade</Text>
       <TextInput
+        maxLength={3}
+        keyboardType="numeric"
         style={styles.input}
         placeholder={'Enter a number from 0 to 256...'}
         value={green}
@@ -27,6 +37,8 @@ const AddSquares = () => {
       />
       <Text style={styles.title}>Blue shade</Text>
       <TextInput
+        maxLength={3}
+        keyboardType="numeric"
         placeholder={'Enter a number from 0 to 256...'}
         style={styles.input}
         value={blue}
@@ -34,7 +46,9 @@ const AddSquares = () => {
       />
       <TouchableOpacity
         onPress={() => dispatch(setColor({ red: +red, green: +green, blue: +blue }))}
-        style={styles.button}>
+        onPressOut={cleanInput}
+        style={+red > 256 || +green > 256 || +blue > 256 ?styles.disabledButton : styles.button}
+        disabled={+red > 256 || +green > 256 || +blue > 256}>
         <Text style={{ fontSize: 20 }}>Generate Color</Text>
       </TouchableOpacity>
     </>

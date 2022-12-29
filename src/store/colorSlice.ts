@@ -3,39 +3,30 @@ import uuid from 'react-native-uuid';
 import { SquareType } from '../models/Square';
 
 type ColorType = {
-  value: SquareType[]
+  squares: SquareType[]
 }
 
-type RandomRgbType = () => SquareType
 
 const initialState: ColorType = {
-  value: [],
+  squares: [],
 };
 
-const randomRgb: RandomRgbType = () => {
-  const red = Math.floor(Math.random() * 256);
-  const green = Math.floor(Math.random() * 256);
-  const blue = Math.floor(Math.random() * 256);
 
-  return {id: uuid.v1(), rgbColor: `rgb(${red}, ${green}, ${blue})`};
-};
 
-const colorRgb = ({red, green, blue}) => {
-  return {id: uuid.v1(), rgbColor: `rgb(${red}, ${green}, ${blue})`};
-}
+
 
 export const colorSlice = createSlice({
   name: 'color',
   initialState,
   reducers: {
-    setRandomColor: (state) => {
-      state.value = [randomRgb(), ...state.value ];
+    setRandomColor: (state, action) => {
+      state.squares = [{id: uuid.v1(), rgbColor: action.payload}, ...state.squares ];
     },
     deleteColor: (state, action) => {
-      state.value = state.value.filter(f => f.id !== action.payload.id);
+      state.squares = state.squares.filter(f => f.id !== action.payload.id);
     },
     setColor: (state, action) => {
-      state.value = [colorRgb(action.payload), ...state.value];
+      state.squares = [{id: uuid.v1(), rgbColor: action.payload}, ...state.squares];
     },
   },
 });

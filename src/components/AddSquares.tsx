@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Keyboard, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { setColor } from '../store/colorSlice';
 import { styles } from './Styles';
@@ -14,7 +14,16 @@ const AddSquares = () => {
     setRed('');
     setGreen('');
     setBlue('');
+    Keyboard.dismiss()
   };
+
+  const colorRgb = () => {
+    return `rgb(${red}, ${green}, ${blue})`;
+  }
+
+  const onPressAddSquareHandler = () => {
+    dispatch(setColor(colorRgb()))
+  }
   return (
     <>
       <Text style={styles.title}>Red shade</Text>
@@ -45,9 +54,9 @@ const AddSquares = () => {
         onChangeText={setBlue}
       />
       <TouchableOpacity
-        onPress={() => dispatch(setColor({ red: +red, green: +green, blue: +blue }))}
+        onPress={onPressAddSquareHandler}
         onPressOut={cleanInput}
-        style={+red > 256 || +green > 256 || +blue > 256 ?styles.disabledButton : styles.button}
+        style={+red > 256 || +green > 256 || +blue > 256 || red.length === 0 || green.length === 0 || blue.length === 0? styles.disabledButton : styles.button}
         disabled={+red > 256 || +green > 256 || +blue > 256}>
         <Text style={{ fontSize: 20 }}>Generate Color</Text>
       </TouchableOpacity>

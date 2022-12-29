@@ -8,7 +8,7 @@ import { styles } from '../components/Styles';
 
 const HomeScreen = () => {
   return (
-    <ScrollView style={styles.wrapper}>
+    <ScrollView keyboardShouldPersistTaps='handled' style={styles.wrapper}>
       <StatusBar style="dark" />
       <AddSquares />
       <AddSquaresRandom />

@@ -1,4 +1,4 @@
 export type SquareType = {
-    id: string | Uint8Array,
+    id: string,
     rgbColor: string,
 }

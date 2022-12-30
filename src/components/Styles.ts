@@ -1,4 +1,3 @@
-import { autoBatchEnhancer } from '@reduxjs/toolkit';
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
@@ -24,6 +23,9 @@ export const styles = StyleSheet.create({
     marginTop: 20,
     opacity: 0.2,
   },
+  buttonTitle: {
+    fontSize: 20,
+  },
   input: {
     width: '100%',
     backgroundColor: '#dcdcdc',
@@ -40,5 +42,12 @@ export const styles = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent: 'flex-start',
     margin: 25,
+  },
+  square: {
+    height: 150,
+    width: 150,
+    alignSelf: 'center',
+    margin: 10,
+    borderRadius: 10,
   },
 });

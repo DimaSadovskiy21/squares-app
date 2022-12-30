@@ -2,13 +2,13 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { ScrollView } from 'react-native';
 import AddSquaresRandom from '../components/AddSquaresRandom';
-import AddSquares from '../components/AddSquares';
-import Squares from '../components/Squares';
+import { AddSquares } from '../components/AddSquares';
+import { Squares } from '../components/Squares';
 import { styles } from '../components/Styles';
 
-const HomeScreen = () => {
+export const HomeScreen = () => {
   return (
-    <ScrollView keyboardShouldPersistTaps='handled' style={styles.wrapper}>
+    <ScrollView keyboardShouldPersistTaps="handled" style={styles.wrapper}>
       <StatusBar style="dark" />
       <AddSquares />
       <AddSquaresRandom />
@@ -17,4 +17,3 @@ const HomeScreen = () => {
   );
 };
 
-export default HomeScreen;

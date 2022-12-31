@@ -36,12 +36,23 @@ export const styles = StyleSheet.create({
     marginLeft: 5,
     fontSize: 18,
   },
+  squaresTitle: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: 18,
+  },
   squares: {
     display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'flex-start',
+    alignItems: 'center',
+    justifyContent: 'center',
     margin: 25,
+  },
+  squareBlock: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    marginBottom: 10,
   },
   square: {
     height: 150,
@@ -49,5 +60,8 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
     margin: 10,
     borderRadius: 10,
+  },
+  squareTitle: {
+    fontSize: 18
   },
 });

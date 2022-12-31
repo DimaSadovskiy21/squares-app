@@ -5,7 +5,7 @@ import { setRandomColor } from '../store/colorSlice';
 import { styles } from './Styles';
 import { SuperButton } from './SuperButton';
 
-const AddSquaresRandom = () => {
+export const AddSquaresRandom = () => {
   const dispatch = useAppDispatch();
 
   const randomRgb = () => {
@@ -28,4 +28,4 @@ const AddSquaresRandom = () => {
   );
 };
 
-export default AddSquaresRandom;
+

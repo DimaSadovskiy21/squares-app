@@ -1,4 +1,4 @@
-import { View } from 'react-native';
+import { Text, View } from 'react-native';
 import { useAppDispatch } from '../hooks/redux';
 import { SquareType } from '../models/Square';
 import { deleteColor } from '../store/colorSlice';
@@ -16,8 +16,9 @@ export const Square: React.FC<SquarePropsType> = ({ square }) => {
     dispatch(deleteColor(square));
   };
   return (
-    <SuperButton  pressHandler={() => onPressDeleteSquareHandler(square)}>
+    <SuperButton style={styles.squareBlock} pressHandler={() => onPressDeleteSquareHandler(square)}>
       <View style={[styles.square, { backgroundColor: square.rgbColor }]} />
+      <Text style={styles.squareTitle}>{square.rgbColor}</Text>
     </SuperButton>
   );
 };
